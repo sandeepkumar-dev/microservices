@@ -2,32 +2,32 @@ package com.microservice1.controller;
 
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/v1")
+@RestController  // Marks this class as a REST controller (handles HTTP requests and returns responses)
+@RequestMapping("/api/v1")  // Base URL for all endpoints in this controller
 public class WelcomeController {
 
-    //http://localhost:8081/api/v1/message
-    @GetMapping("/message")
+    // Endpoint: http://localhost:8081/api/v1/message
+    @GetMapping("/message")  // Handles HTTP GET request
     public String getMessage(){
-        return "Welcome";
+        return "Welcome";  // Returns a simple welcome message
     }
 
-    @GetMapping("/hello")
+    @GetMapping("/hello")  // Handles HTTP GET request
     public String getHello(){
-        return "Hello";
+        return "Hello";  // Returns hello message
     }
 
-    @PostMapping("/hi")
+    @PostMapping("/hi")  // Handles HTTP POST request
     public String getHello(
-            @RequestParam String x
+            @RequestParam String x  // Reads query parameter 'x' from request
     ){
-        return x;
+        return x;  // Returns the same value received from client
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete")  // Handles HTTP DELETE request
     public String callDelete(
-            @RequestParam String x
+            @RequestParam String x  // Reads query parameter 'x'
     ){
-        return x;
+        return x;  // Returns the same value received
     }
 }

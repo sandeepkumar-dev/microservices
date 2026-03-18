@@ -6,20 +6,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
-
-@Configuration
+@Configuration  // Marks this class as a configuration class for Spring (used to define beans)
 public class ConfigClass {
 
-    @LoadBalanced
-    @Bean
+    @LoadBalanced  // Enables client-side load balancing for RestTemplate (works with Eureka/discovery server)
+    @Bean          // Makes RestTemplate available as a Spring bean
     public RestTemplate getRestTemplate(){
-        return new RestTemplate();
+        return new RestTemplate(); // Standard RestTemplate to make HTTP calls to other services
     }
 
-
-    @LoadBalanced
-    @Bean
+    @LoadBalanced  // Enables client-side load balancing for WebClient
+    @Bean          // Makes WebClient.Builder available as a Spring bean
     public WebClient.Builder webClientBuilder() {
-        return WebClient.builder();
+        return WebClient.builder(); // Builder for creating WebClient instances for reactive HTTP calls
     }
 }

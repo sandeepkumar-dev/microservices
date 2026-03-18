@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-@EnableEurekaServer
+@EnableEurekaServer // // Enables Eureka Server (acts as a registry for services)
 public class EurekaServerApplication {
 
 	public static void main(String[] args) {
